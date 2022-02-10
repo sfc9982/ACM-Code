@@ -1,0 +1,3 @@
+"D:\Program Files\JetBrains\Toolbox\apps\CLion\ch-0\213.6777.58\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\NEFU.dir/objects.a
+D:\mingw64\bin\ar.exe qc CMakeFiles\NEFU.dir/objects.a @CMakeFiles\NEFU.dir\objects1.rsp
+D:\mingw64\bin\g++.exe -DONLINE_JUDGE -Wall -fno-asm -lm -march=native -O3 -DNDEBUG -Wl,--whole-archive CMakeFiles\NEFU.dir/objects.a -Wl,--no-whole-archive -o NEFU.exe -Wl,--out-implib,libNEFU.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\NEFU.dir\linklibs.rsp

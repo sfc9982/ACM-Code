@@ -1,0 +1,3 @@
+"D:\Program Files\JetBrains\Toolbox\apps\CLion\ch-0\213.6777.58\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\prime_euler.dir/objects.a
+D:\mingw64\bin\ar.exe qc CMakeFiles\prime_euler.dir/objects.a @CMakeFiles\prime_euler.dir\objects1.rsp
+D:\mingw64\bin\g++.exe -Wall -g -Wl,--whole-archive CMakeFiles\prime_euler.dir/objects.a -Wl,--no-whole-archive -o prime_euler.exe -Wl,--out-implib,libprime_euler.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\prime_euler.dir\linklibs.rsp

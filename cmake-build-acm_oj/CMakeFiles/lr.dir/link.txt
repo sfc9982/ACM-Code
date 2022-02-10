@@ -1,0 +1,3 @@
+"D:\Program Files\JetBrains\Toolbox\apps\CLion\ch-0\213.6777.58\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\lr.dir/objects.a
+D:\mingw64\bin\ar.exe qc CMakeFiles\lr.dir/objects.a @CMakeFiles\lr.dir\objects1.rsp
+D:\mingw64\bin\g++.exe -DONLINE_JUDGE -Wall -fno-asm -lm -march=native -g -Wl,--whole-archive CMakeFiles\lr.dir/objects.a -Wl,--no-whole-archive -o lr.exe -Wl,--out-implib,liblr.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\lr.dir\linklibs.rsp

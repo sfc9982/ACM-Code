@@ -1,0 +1,4 @@
+"D:\Program Files\JetBrains\Toolbox\apps\CLion\ch-0\213.6777.58\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=11 "-DCMAKE_CXX_FLAGS=-DONLINE_JUDGE -Wall -fno-asm -lm -march=native" -G "CodeBlocks - MinGW Makefiles" D:\Desktop\ACM
+-- Configuring done
+-- Generating done
+-- Build files have been written to: D:/Desktop/ACM/cmake-build-acm_oj

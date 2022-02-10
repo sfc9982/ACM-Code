@@ -1,0 +1,16 @@
+D:/Desktop/ACM/cmake-build-debug/CMakeFiles/ACM.dir
+D:/Desktop/ACM/cmake-build-debug/CMakeFiles/F.dir
+D:/Desktop/ACM/cmake-build-debug/CMakeFiles/NEFU.dir
+D:/Desktop/ACM/cmake-build-debug/CMakeFiles/I.dir
+D:/Desktop/ACM/cmake-build-debug/CMakeFiles/A.dir
+D:/Desktop/ACM/cmake-build-debug/CMakeFiles/D.dir
+D:/Desktop/ACM/cmake-build-debug/CMakeFiles/template.dir
+D:/Desktop/ACM/cmake-build-debug/CMakeFiles/G.dir
+D:/Desktop/ACM/cmake-build-debug/CMakeFiles/C.dir
+D:/Desktop/ACM/cmake-build-debug/CMakeFiles/B.dir
+D:/Desktop/ACM/cmake-build-debug/CMakeFiles/E.dir
+D:/Desktop/ACM/cmake-build-debug/CMakeFiles/H.dir
+D:/Desktop/ACM/cmake-build-debug/CMakeFiles/K.dir
+D:/Desktop/ACM/cmake-build-debug/CMakeFiles/L.dir
+D:/Desktop/ACM/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Desktop/ACM/cmake-build-debug/CMakeFiles/rebuild_cache.dir
