@@ -16,6 +16,7 @@ int main()
         if (a[i] > r)
             r = a[i];
     }
+    int mid;
     while (l < r)
     {
         int mid = (l + r) >> 1;
@@ -23,12 +24,37 @@ int main()
         for (int i = 0; i < n; i++)
             if (a[i] > mid)
                 tmp += a[i] - mid;
-        if (tmp < m)
+        if (tmp <= m)
             r = mid;
         else
             l = mid + 1;
     }
+    while (true)
+    {
+        tmp = 0;
+        for (int i = 0; i < n; i++)
+            if (a[i] > r)
+                tmp += a[i] - r;
+        if (tmp >= m)
+        {
+            break;
+        }
+        r--;
+    }
+    while (true)
+    {
+        tmp = 0;
+        for (int i = 0; i < n; i++)
+            if (a[i] > r)
+                tmp += a[i] - r;
+        if (tmp < m)
+        {
+            r--;
+            break;
+        }
+        r++;
+    }
 
-    printf("%lld", r - 1);
+    printf("%lld", r);
     return 0;
 }
