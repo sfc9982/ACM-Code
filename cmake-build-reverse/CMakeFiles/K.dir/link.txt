@@ -1,3 +1,0 @@
-"D:\Program Files\JetBrains\Toolbox\apps\CLion\ch-0\213.6777.58\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\K.dir/objects.a
-D:\mingw64\bin\ar.exe qc CMakeFiles\K.dir/objects.a @CMakeFiles\K.dir\objects1.rsp
-D:\mingw64\bin\g++.exe -Wall -g -Wl,--whole-archive CMakeFiles\K.dir/objects.a -Wl,--no-whole-archive -o K.exe -Wl,--out-implib,libK.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\K.dir\linklibs.rsp

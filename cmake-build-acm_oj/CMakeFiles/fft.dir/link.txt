@@ -1,3 +1,0 @@
-"D:\Program Files\JetBrains\Toolbox\apps\CLion\ch-0\213.6777.58\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\fft.dir/objects.a
-D:\mingw64\bin\ar.exe qc CMakeFiles\fft.dir/objects.a @CMakeFiles\fft.dir\objects1.rsp
-D:\mingw64\bin\g++.exe -DONLINE_JUDGE -Wall -fno-asm -lm -march=native -g -Wl,--whole-archive CMakeFiles\fft.dir/objects.a -Wl,--no-whole-archive -o fft.exe -Wl,--out-implib,libfft.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\fft.dir\linklibs.rsp

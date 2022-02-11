@@ -1,3 +1,0 @@
-"D:\Program Files\JetBrains\Toolbox\apps\CLion\ch-0\213.6777.58\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\P410.dir/objects.a
-D:\mingw64\bin\ar.exe qc CMakeFiles\P410.dir/objects.a @CMakeFiles\P410.dir\objects1.rsp
-D:\mingw64\bin\g++.exe -Wall -g -Wl,--whole-archive CMakeFiles\P410.dir/objects.a -Wl,--no-whole-archive -o P410.exe -Wl,--out-implib,libP410.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\P410.dir\linklibs.rsp
