@@ -27,3 +27,6 @@ add_executable(cpp cpp.cpp)
 add_executable(G Match-220302/G.cpp)
 
 add_executable(F Match-220302/F.cpp)
+
+add_executable(I Luogu/Week-2/I.cpp)
+add_executable(CF1641C Luogu/CF1641C.cpp)
