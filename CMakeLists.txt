@@ -11,7 +11,7 @@ add_executable(NEFU NEFU.cpp)
 add_executable(K ACM-DynamicProgramming/K.cpp)
 
 
-add_executable(A 20220311/A.cpp)
+add_executable(A Luogu/Week-2/A.cpp)
 add_executable(B Match-220302/B.cpp)
 add_executable(C VP/C.cpp)
 add_executable(template template.cpp)
