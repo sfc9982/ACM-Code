@@ -6,12 +6,15 @@
       <file path="$PROJECT_DIR$" />
     </sourceRoots>
     <excludeRoots>
+      <file path="$PROJECT_DIR$/20220311" />
       <file path="$PROJECT_DIR$/ACM-BinarySearch" />
       <file path="$PROJECT_DIR$/ACM-DataStructure" />
       <file path="$PROJECT_DIR$/ACM-DynamicProgramming" />
       <file path="$PROJECT_DIR$/ACM-Math" />
       <file path="$PROJECT_DIR$/ACM_SEARCH" />
       <file path="$PROJECT_DIR$/ACM_STL" />
+      <file path="$PROJECT_DIR$/Classmates-Shitty-Code" />
+      <file path="$PROJECT_DIR$/HDU" />
       <file path="$PROJECT_DIR$/NEFU_Contest_Grade_1" />
       <file path="$PROJECT_DIR$/cyaron-master" />
     </excludeRoots>

@@ -2,14 +2,14 @@
 // Created by sfc9982 on 2022/03/15.
 //
 
-#include <iostream>
-#include <cstring>
-#include <string>
-#include <iomanip>
 #include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <iomanip>
+#include <iostream>
 #include <queue>
 #include <stack>
-#include <cmath>
+#include <string>
 
 using namespace std;
 
@@ -38,8 +38,7 @@ int main()
         cin >> op;
         switch (op)
         {
-            case 0:
-            {
+            case 0: {
                 int l, r, v;
                 cin >> l >> r >> v;
                 if (!v)
@@ -58,8 +57,7 @@ int main()
                 }
                 break;
             }
-            case 1:
-            {
+            case 1: {
                 int x;
                 cin >> x;
                 cout << (fa[x] == x ? maxv[x] != -1 && find(maxv[x]) == find(x - 1) ? "YES\n" : "N/A\n" : "NO\n");
