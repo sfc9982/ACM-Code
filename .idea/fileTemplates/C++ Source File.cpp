@@ -7,6 +7,7 @@
 #[[#include]]# <queue>
 #[[#include]]# <stack>
 #[[#include]]# <cmath>
+#[[#include]]# <functional>
 
 using namespace std;
 

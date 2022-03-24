@@ -11,11 +11,10 @@ add_executable(NEFU NEFU.cpp)
 add_executable(K ACM-DynamicProgramming/K.cpp)
 
 
-add_executable(A Luogu/Week-3/A.cpp)
 add_executable(B Match-220302/B.cpp)
 add_executable(C VP/C.cpp)
 add_executable(template template.cpp)
-add_executable(D Match-220302/D.cpp)
+add_executable(D Luogu/Week-3/D.cpp)
 add_executable(E Luogu/Week-3/E.cpp)
 add_executable(L ACM-DynamicProgramming/L.cpp)
 add_executable(M ACM-DynamicProgramming/M.cpp)
@@ -26,8 +25,14 @@ add_executable(cpp cpp.cpp)
 
 add_executable(G Match-220302/G.cpp)
 
-add_executable(F Match-220302/F.cpp)
+add_executable(F Luogu/Week-3/F.cpp)
 
-add_executable(I Luogu/Week-2/I.cpp)
+add_executable(I Luogu/Week-3/I.cpp)
 add_executable(CF1641C Luogu/CF1641C.cpp)
 add_executable(Gym-103446 Codeforces/Gym-103446.cpp)
+
+add_executable(S Luogu/Week-3/S.cpp)
+
+add_executable(wc Classmates-Shitty-Code/wc.cpp)
+
+add_executable(J Luogu/Week-3/J.cpp)
