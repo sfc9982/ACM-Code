@@ -14,25 +14,33 @@
 
 using namespace std;
 
-stack<int> S;
+int f[100010];
+
+struct node {
+    int num;
+    int id;
+} e;
+
+deque<node> Q;
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
-    int n, sum;
-
+    int n;
     cin >> n;
     for (int i = 1; i <= n; i++)
     {
         int x;
         cin >> x;
-        while (!S.empty() && S.top() <= x)
-            S.pop();
-        sum += (long long) S.size();
-        S.push(x);
+        while (!Q.empty() && Q.back().num < x)
+            f[Q.back().id] = i, Q.pop_back();
+        e.num = x;
+        e.id = i;
+        Q.push_back(e);
     }
-    cout << sum << endl;
+    for (int i = 1; i <= n; i++)
+        cout << f[i] << endl;
     return 0;
 }

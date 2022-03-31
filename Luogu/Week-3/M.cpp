@@ -14,25 +14,25 @@
 
 using namespace std;
 
-stack<int> S;
+int nxt[1000005];
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
-    int n, sum;
-
-    cin >> n;
+    int n, m;
+    cin >> n >> m;
+    for (int i = 0; i < n; i++)
+        nxt[i] = i + 1;
+    nxt[n] = 1;
+    int p = 0;
     for (int i = 1; i <= n; i++)
     {
-        int x;
-        cin >> x;
-        while (!S.empty() && S.top() <= x)
-            S.pop();
-        sum += (long long) S.size();
-        S.push(x);
+        for (int j = 1; j < m; j++)
+            p = nxt[p];
+        cout << nxt[p] << " ";
+        nxt[p] = nxt[nxt[p]];
     }
-    cout << sum << endl;
     return 0;
 }
