@@ -1,43 +1,40 @@
-#include <iostream>
-#include <cstring>
-#include <algorithm>
-
-using namespace std;
-
-int n;
-int st[100];
-
-int lowbit(int x)
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int cmp(const void *p, const void *q)
 {
-    return x & (-x);
+    return strcmp(*(char **) p, *(char **) q);
 }
-
-void add(int x, int k)
+void sort1(char **pp, int n)
 {
-    for (; x <= n; x += lowbit(x))
-        st[x] += k;
+    //补充完成程序
+    qsort(pp, n, sizeof(char *), cmp);
 }
-
-int ask(int x)
+void output1(char *p[], int n)
 {
-    int ans = 0;
-    for (; x > 0; x -= lowbit(x))
-        ans += st[x];
-    return ans;
+    //补充完成程序
+    for (int i = 0; i < n; i++)
+        printf("%s\n", p[i]);
 }
-
-int interval_sum(int x, int y)
-{
-    return ask(y) - ask(x - 1);
-}
-
 int main()
 {
-    n = 3;
-    memset(st, 0, sizeof(st));
-    add(1, 1);
-    add(2, 2);
-    add(3, 3);
-    cout << interval_sum(1, 3) << flush;
+    void sort1(char **pp, int n);
+    void output1(char *p[], int n);
+    char str[50], *cp[20];
+    int n, l, i;
+    while (scanf("%d\n", &n) != EOF)
+    {
+        for (i = 0; i < n; i++)
+        {
+            gets(str);
+            //start
+            //在此写动态开辟并存储程序
+            cp[i] = (char *) malloc(50 * sizeof(char));
+            strcpy(cp[i], str);
+            //end
+        }
+        sort1(cp, n);
+        output1(cp, n);
+    }
     return 0;
 }
