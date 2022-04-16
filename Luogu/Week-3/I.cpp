@@ -1,5 +1,5 @@
 //
-// Created by sfc9982 on 2022/03/24.
+// Created by sfc9982 on 2022/03/31.
 //
 
 #include <algorithm>
@@ -14,38 +14,66 @@
 
 using namespace std;
 
-const int MOD = 10000;
-stack<int> S;
+int o = 1;
+int heap[1000050];
+
+inline void up(int p)
+{
+    if (heap[p] < heap[p >> 1])
+    {
+        swap(heap[p], heap[p >> 1]);
+        up(p >> 1);
+    }
+    return;
+}
+
+inline void down(int p)
+{
+    int s = p << 1;
+    if (heap[s] < heap[p] || s + 1 > o)
+    {
+        if (heap[s] < heap[s + 1] && s + 1 <= o)
+        {
+            swap(heap[s], heap[p]);
+            down(s);
+        }
+    }
+    if (heap[s + 1] < heap[p] && s + 1 <= o)
+    {
+        swap(heap[s + 1], heap[p]);
+        down(s + 1);
+    }
+    return;
+}
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
-    int a, b;
-    char op;
-
-    cin >> a;
-    a %= MOD;
-    S.push(a);
-    while (cin >> op >> b)
+    int n, a, b;
+    cin >> n;
+    for (int i = 1; i <= n; i++)
     {
-        if (op == '*')
+        cin >> a;
+        if (a == 1)
+            cin >> b;
+        if (a == 1)
         {
-            a = S.top();
-            S.pop();
-            S.push(a * b % MOD);
+            heap[o] = b;
+            up(o);
+            o++;
         }
-        else
-            S.push(b);
+        if (a == 2)
+        {
+            cout << heap[1] << endl;
+        }
+        if (a == 3)
+        {
+            o--;
+            heap[1] = heap[o];
+            down(1);
+        }
     }
-    int res = 0;
-    while (!S.empty())
-    {
-        res += S.top();
-        res %= MOD;
-        S.pop();
-    }
-    cout << res << endl;
     return 0;
 }

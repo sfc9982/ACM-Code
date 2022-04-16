@@ -1,10 +1,11 @@
 //
-// Created by sfc9982 on 2022/03/23.
+// Created by sfc9982 on 2022/03/31.
 //
 
 #include <algorithm>
 #include <cmath>
 #include <cstring>
+#include <functional>
 #include <iomanip>
 #include <iostream>
 #include <queue>
@@ -13,41 +14,69 @@
 
 using namespace std;
 
-const int INF = 0x3f3f3f3f;
+int minn, rtboy, rtgirl, boy, girl;
+int father[20001], mother[20001];
 
-int len = INF;
-int n, m, a[1000001], ans[2001];
+int find_num(int fa[], int x)
+{
+    if (fa[x] != x)
+        fa[x] = find_num(fa, fa[x]);
+    return fa[x];
+}
 
-deque<int> Q;
+void merge_boy(int x, int y)
+{
+    int r1, r2;
+    r1 = find_num(father, x);
+    r2 = find_num(father, y);
+    if (r1 != r2)
+        father[r2] = r1;
+}
+
+void merge_girl(int x, int y)
+{
+    int r1, r2;
+    r1 = find_num(mother, x);
+    r2 = find_num(mother, y);
+    if (r1 != r2)
+        mother[r2] = r1;
+}
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
-    int l, r;
-    cin >> n >> m;
-    int sum = 0;
+    int n, m, p, q;
+    cin >> n >> m >> p >> q;
     for (int i = 1; i <= n; i++)
+        father[i] = i;
+    for (int i = 1; i <= m; i++)
+        mother[i] = i;
+    for (int i = 1; i <= p; i++)
     {
-        cin >> a[i];
-        if (!ans[a[i]])
-            sum++;
-        ans[a[i]]++;
-        Q.push_back(i);
-        while (!Q.empty() && ans[a[Q.front()]] > 1)
-        {
-            ans[a[Q.front()]]--;
-            Q.pop_front();
-        }
-        if (sum == m)
-            if ((int) Q.size() < len)
-            {
-                len = (int) Q.size();
-                l = Q.front();
-                r = Q.back();
-            }
+        int x, y;
+        cin >> x >> y;
+        merge_boy(x, y);
     }
-    cout << l << " " << r << endl;
+    for (int i = 1; i <= q; i++)
+    {
+        int x, y;
+        cin >> x >> y;
+        x = -x;
+        y = -y;
+        merge_girl(x, y);
+    }
+    rtboy = find_num(father, 1);
+    rtgirl = find_num(mother, 1);
+    boy = girl = 0;
+    for (int i = 1; i <= n; i++)
+        if (find_num(father, i) == rtboy)
+            boy++;
+    for (int i = 1; i <= m; i++)
+        if (find_num(mother, i) == rtgirl)
+            girl++;
+    minn = min(boy, girl);
+    cout << minn << endl;
     return 0;
 }

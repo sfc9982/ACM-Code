@@ -2,15 +2,15 @@
 // Created by sfc9982 on 2022/03/05.
 //
 
-#include <iostream>
-#include <cstring>
-#include <string>
-#include <iomanip>
 #include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <functional>
+#include <iomanip>
+#include <iostream>
 #include <queue>
 #include <stack>
-#include <cmath>
-#include <functional>
+#include <string>
 
 using namespace std;
 
@@ -31,7 +31,7 @@ int main()
 
     vector<vector<int>> G(n);
 
-    for (int i = 0; i < n - 1; i++)
+    for (int i = 0; i < (int) n - 1; i++)
     {
         int u, v;
         cin >> u >> v;
@@ -41,7 +41,7 @@ int main()
     }
 
     vector<vector<pair<int, int>>> dp(n, vector<pair<int, int>>(2));
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < (int) n; i++)
     {
         dp[i][0] = {0, -1};
         dp[i][1] = {1, -(int) G[i].size()};
@@ -71,7 +71,8 @@ int main()
         if (good)
         {
             w[u] = (int) G[u].size();
-        } else
+        }
+        else
         {
             w[u] = 1;
         }
@@ -84,15 +85,16 @@ int main()
             if (good or dp[v][0] >= dp[v][1])
             {
                 dfs2(v, u, false);
-            } else
+            }
+            else
             {
                 dfs2(v, u, true);
             }
         }
     };
-    dfs2(0, -1, (dp[0][0] >= dp[0][1] ? false : true));
+    dfs2(0, -1, !(dp[0][0] >= dp[0][1]));
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < (int) n; i++)
     {
         cout << w[i] << " \n"[i == n - 1];
     }

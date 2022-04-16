@@ -1,5 +1,5 @@
 //
-// Created by sfc9982 on 2022/03/24.
+// Created by sfc9982 on 2022/03/31.
 //
 
 #include <algorithm>
@@ -8,41 +8,31 @@
 #include <functional>
 #include <iomanip>
 #include <iostream>
+#include <list>
 #include <queue>
 #include <stack>
 #include <string>
 
 using namespace std;
 
+int n;
+
+list<string> q;
+
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
-    function<int(void)> calc = [&calc]() -> int {
-        int sum = 0;
-        char x;
-        while (cin >> x)
-        {
-            switch (x)
-            {
-                case '(':
-                    sum += calc();
-                    break;
-                case 'a':
-                    sum++;
-                    break;
-                case '|':
-                    return max(sum, calc());
-                case ')':
-                    return sum;
-                default:;
-            }
-        }
-        return sum;
-    };
-
-    cout << calc() << endl;
-
+    cin >> n;
+    for (int i = 1; i <= n; i++)
+    {
+        string s;
+        cin >> s;
+        q.push_front(s);
+    }
+    q.sort();
+    q.unique();
+    cout << q.size();
     return 0;
 }

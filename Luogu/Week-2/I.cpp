@@ -1,57 +1,51 @@
 //
-// Created by sfc9982 on 2022/03/15.
+// Created by sfc9982 on 2022/03/24.
 //
 
-#include <iostream>
-#include <cstring>
-#include <string>
-#include <iomanip>
 #include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <functional>
+#include <iomanip>
+#include <iostream>
 #include <queue>
 #include <stack>
-#include <cmath>
+#include <string>
 
 using namespace std;
 
-const int INF = 0x3f3f3f3f;
-long long n, k;
-long long a[1000005];
-
-bool valid(long long x)
-{
-    long long sum = 0;
-    for (int i = 1; i <= n; i++)
-    {
-        sum += a[i] / x;
-    }
-    return sum >= k;
-}
+const int MOD = 10000;
+stack<int> S;
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
-    cin >> n >> k;
+    int a, b;
+    char op;
 
-    for (int i = 1; i <= n; i++)
+    cin >> a;
+    a %= MOD;
+    S.push(a);
+    while (cin >> op >> b)
     {
-        cin >> a[i];
-    }
-
-    long long l = 0, r = INF, mid;
-    while (r - l > 1)
-    {
-        mid = (l + r) >> 1;
-        if (valid(mid))
+        if (op == '*')
         {
-            l = mid;
+            a = S.top();
+            S.pop();
+            S.push(a * b % MOD);
         }
         else
-        {
-            r = mid;
-        }
+            S.push(b);
     }
-    cout << l << endl;
+    int res = 0;
+    while (!S.empty())
+    {
+        res += S.top();
+        res %= MOD;
+        S.pop();
+    }
+    cout << res << endl;
     return 0;
 }

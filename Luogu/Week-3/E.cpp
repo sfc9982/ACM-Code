@@ -1,58 +1,91 @@
 //
-// Created by sfc9982 on 2022/03/23.
+// Created by sfc9982 on 2022/03/31.
 //
 
 #include <algorithm>
 #include <cmath>
 #include <cstring>
+#include <functional>
 #include <iomanip>
 #include <iostream>
 #include <queue>
 #include <stack>
 #include <string>
+#include <unordered_map>
 
 using namespace std;
+
+
+const int N = 1000010;
+
+int p[N], d[N];
+int idx;
+
+unordered_map<int, int> id;
+
+struct Query {
+    int a, b, t;
+} q[N];
+
+int get(int x)
+{
+    if (!id.count(x))
+        id[x] = ++idx;
+    return id[x];
+}
+
+inline int find(int x)
+{
+    return x == p[x] ? x : p[x] = find(p[x]);
+}
+
+inline void merge(int a, int b)
+{
+    p[find(a)] = find(b);
+}
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
-    int n, T;
+    int T;
     cin >> T;
     while (T--)
     {
-        stack<unsigned long long int> s;
-        cin >> n;
-        for (int i = 1; i <= n; i++)
+        id.clear(), idx = 0;
+        for (int i = 0; i < N; i++)
+            p[i] = i;
+
+        int k;
+        cin >> k;
+        for (int j = 0; j < k; j++)
         {
-            string op;
-            cin >> op;
-            if (op == "push")
+            int a, b, t;
+            cin >> a >> b >> t;
+            a = get(a), b = get(b);
+            q[j] = {a, b, t};
+            if (!t)
+                continue;
+            merge(a, b);
+        }
+
+        bool flag = false;
+        for (int j = 0; j < k; j++)
+        {
+            int &a = q[j].a, &b = q[j].b, &t = q[j].t;
+            if (t)
+                continue;
+            if (p[find(a)] == find(b))
             {
-                unsigned long long x;
-                cin >> x;
-                s.push(x);
-            }
-            else if (op == "pop")
-            {
-                if (s.empty())
-                    cout << "Empty" << endl;
-                else
-                    s.pop();
-            }
-            else if (op == "query")
-            {
-                if (s.empty())
-                    cout << "Anguei!" << endl;
-                else
-                    cout << s.top() << endl;
-            }
-            else
-            {
-                cout << s.size() << endl;
+                flag = true;
+                puts("NO");
+                break;
             }
         }
+
+        if (!flag)
+            puts("YES");
     }
     return 0;
 }

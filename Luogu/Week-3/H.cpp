@@ -1,5 +1,5 @@
 //
-// Created by sfc9982 on 2022/03/23.
+// Created by sfc9982 on 2022/03/31.
 //
 
 #include <algorithm>
@@ -14,52 +14,49 @@
 
 using namespace std;
 
-stack<int> S;
-int n, push_arr[100005], pop_arr[100005];
-int t;
+int father[500050], pre[500050], num[500050], x, y, i, j, n, t, ans;
+char s;
 
-bool valid()
+int f(int n)
 {
-    for (int i = 1; i <= n; i++)
-    {
-        if (!S.empty() && S.top() == pop_arr[i])
-        {
-            S.pop();
-            continue;
-        }
-        while (t <= n && push_arr[t] != pop_arr[i])
-        {
-            S.push(push_arr[t]);
-            t++;
-        }
-        if (t > n)
-            return false;
-        t++;
-    }
-    return true;
+    if (father[n] == n)
+        return father[n];
+    int x;
+    x = f(father[n]);
+    pre[n] += pre[father[n]];
+    return father[n] = x;
 }
-
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
-    int T;
-    cin >> T;
-    while (T--)
+    cin >> t;
+    for (i = 1; i <= 30000; i++)
     {
-        t = 1;
-        cin >> n;
-        for (int i = 1; i <= n; i++)
-            cin >> push_arr[i];
-        for (int i = 1; i <= n; i++)
-            cin >> pop_arr[i];
-        while (!S.empty())
-            S.pop();
-        if (valid())
-            cout << "Yes" << endl;
-        else
-            cout << "No" << endl;
+        father[i] = i;
+        pre[i] = 0;
+        num[i] = 1;
+    }
+    for (int i = 1; i <= t; i++)
+    {
+        cin >> s >> x >> y;
+        int fx = f(x);
+        int fy = f(y);
+        if (s == 'M')
+        {
+            pre[fx] += num[fy];
+            father[fx] = fy;
+            num[fy] += num[fx];
+            num[fx] = 0;
+        }
+        if (s == 'C')
+        {
+            if (fx != fy)
+                cout << -1 << endl;
+            else
+                cout << abs(pre[x] - pre[y]) - 1 << endl;
+        }
     }
     return 0;
 }

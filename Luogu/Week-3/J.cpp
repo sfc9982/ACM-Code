@@ -1,5 +1,5 @@
 //
-// Created by sfc9982 on 2022/03/24.
+// Created by sfc9982 on 2022/03/31.
 //
 
 #include <algorithm>
@@ -13,37 +13,60 @@
 #include <string>
 
 using namespace std;
-int a[1005], b[1005];
+
+int cd, n, heap[10000];
+
+void work(int d)
+{
+    int now, next;
+    heap[++cd] = d;
+    now = cd;
+    while (now > 1)
+    {
+        next = now >> 1;
+        if (heap[now] >= heap[next])
+            return;
+        swap(heap[now], heap[next]);
+        now = next;
+    }
+}
+int get()
+{
+    int now, next, res;
+    res = heap[1];
+    heap[1] = heap[cd--];
+    now = 1;
+    while (now * 2 <= cd)
+    {
+        next = now * 2;
+        if (next < cd && heap[next + 1] < heap[next])
+            next++;
+        if (heap[now] <= heap[next])
+            return res;
+        swap(heap[now], heap[next]);
+        now = next;
+    }
+    return res;
+}
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
-
-    int n, m;
-    cin >> m >> n;
-
-    int ans = 0;
-    int l = 0, r = 0;
-
-    for (int i = 1; i <= n; i++)
+    int i, x, y, ans = 0;
+    cin >> n;
+    for (i = 1; i <= n; i++)
     {
-        int x;
         cin >> x;
-        if (a[x] == 0)
-        {
-            ans++;
-            r++;
-            b[r] = x;
-            a[x] = 1;
-            if (r > m)
-            {
-                l++;
-                a[b[l]] = 0;
-            }
-        }
+        work(x);
+    }
+    for (i = 1; i < n; i++)
+    {
+        x = get();
+        y = get();
+        ans += x + y;
+        work(x + y);
     }
     cout << ans << endl;
-
     return 0;
 }
