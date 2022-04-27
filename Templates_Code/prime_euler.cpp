@@ -1,10 +1,10 @@
-#include <iostream>
 #include <bitset>
+#include <iostream>
 #include <vector>
 
 using namespace std;
 
-const int N = 102400;
+const int N = 101;
 bitset<N> bit_p;
 vector<int> vec_prime;
 
@@ -29,11 +29,14 @@ void getPrime()
 
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr), cout.tie(nullptr);
     getPrime();
     int n;
-    while (cin >> n)
-        cout << (bit_p[n] ? "YES" : "NO") << endl;
+    for (int i = 2; i <= 100; i++)
+    {
+        if (bit_p[i])
+        {
+            cout << i << " ";
+        }
+    }
     return 0;
 }

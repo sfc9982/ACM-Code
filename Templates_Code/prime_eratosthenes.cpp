@@ -1,9 +1,9 @@
-#include <iostream>
 #include <bitset>
+#include <iostream>
 
 using namespace std;
 
-const int N = 102400;
+const int N = 101;
 bitset<N> p;
 
 void getPrime()
@@ -29,8 +29,12 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
     getPrime();
-    int n;
-    while (cin >> n)
-        cout << (p[n] ? "YES" : "NO") << endl;
+    for (int i = 2; i <= 100; i++)
+    {
+        if (p[i])
+        {
+            cout << i << " ";
+        }
+    }
     return 0;
 }
