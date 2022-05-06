@@ -1,48 +1,39 @@
-#include <cstring>
-#include <iostream>
-
-using namespace std;
-
-double s;
-
-void calculation(double (*p)[4], int n, int *pn)
+void *realloc(void *p, size_t size)
 {
-    int i, j;
-    double a = 0;
-    for (i = 0; i < 3; i++)
+    size_t s;
+    t_block b, _new;
+    if (!p)
+        return malloc(size);
+    if (valid_addr(p))
     {
-        *(*(p + i) + 3) = 0;
-        for (j = 0; j < 3; j++)
+        s = align4(size);
+        b = get_block(p);
+        if (b->size >= s) //如果size变小了，考虑split
         {
-            *(*(p + i) + 3) = *(*(p + i) + 3) + *(*(p + i) + j);
+            if (b->size - s >= (BLOCK_SIZE + 4))
+                split_block(b, s);
         }
-        a = a + p[i][3];
-    }
-    a = a / n;
-    printf("%.2lf\n", a);
-    *pn = 0;
-    for (i = 0; i < 3; i++)
-    {
-        if (p[i][3] > a)
+        else //如果当前block的数据区不能满足size
         {
-            *pn = *pn + 1;
-            s = s + p[i][3];
+            //如果后继block是free的，并且合并后大小满足size，考虑合并
+            if (b->next && b->next->free && (b->size + BLOCK_SIZE + b->next->size) >= s)
+            {
+                fusion(b); //合并后满足size，再看能不能split
+                if (b->size - s >= (BLOCK_SIZE + 4))
+                    split_block(b, s);
+            }
+            else //以上都不满足，则malloc新区域
+            {
+                newp = malloc(s);
+                if (!newp)
+                    return NULL; //内存复制
+                _new = get_block(newp);
+                copy_block(b, new);
+                free(p);
+                return newp;
+            }
         }
+        return p;
     }
-}
-
-
-int main()
-{
-    int n, m, num, i, j;
-    while (scanf("%d", &n) != EOF)
-    {
-        double score[n][4];
-        for (i = 0; i < 3; i++)
-            for (j = 0; j < 3; j++)
-                scanf("%lf", &score[i][j]);
-        calculation(score, n, &num);
-        printf("%.2lf %d\n", s, num);
-    }
-    return 0;
+    return NULL;
 }
