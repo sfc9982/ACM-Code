@@ -1,9 +1,4 @@
-//
-// Created by sfc9982 on 2022/5/4.
-//
-
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 char name[100][100];
@@ -61,22 +56,45 @@ int main()
             printf("%s 不是有效的学生学号\n", id);
             continue;
         }
-        long long n = atoll(id);
-        if (n == 0)
+        if (id[0] == '0')
             break;
-        int year = n / 1e8;
+        int year = 0;
+        for (int i = 0; i < 4; i++)
+        {
+            year *= 10;
+            year += id[i] - '0';
+        }
         if (year < 2018 || year > 2021)
         {
             printf("日期 %d 错误\n", year);
             continue;
         }
-        int _class = n % 10000 / 100;
-        int num = n % 100;
-        int institute_id = n % 1000000 / 10000;
+        int institute_id = 0;
+        for (int i = 6; i < 8; i++)
+        {
+            institute_id *= 10;
+            institute_id += id[i] - '0';
+        }
+        if (name[institute_id][0] == '\0')
+        {
+            printf("学院 %d 不存在\n", institute_id);
+            continue;
+        }
+        int _class = 0;
+        for (int i = 8; i < 10; i++)
+        {
+            _class *= 10;
+            _class += id[i] - '0';
+        }
+        int num = 0;
+        for (int i = 10; i < 12; i++)
+        {
+            num *= 10;
+            num += id[i] - '0';
+        }
         char institute_name[100];
         strcpy(institute_name, name[institute_id]);
         printf("%d级, %s, %d班, %d号\n", year, institute_name, _class, num);
     }
-
     return 0;
 }
