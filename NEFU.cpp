@@ -5,6 +5,8 @@ using namespace std;
 
 int main()
 {
-    cout << "Hello World!" << endl;
+    int a = -21, b = 32, max;
+    max = a > b ? a : b;
+    cout << max << endl;
     return 0;
 }
