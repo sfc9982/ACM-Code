@@ -15,8 +15,12 @@
 using namespace std;
 
 struct node_st {
-    int data = 0;
-    node_st *next = nullptr;
+    node_st()
+        : data(0), next(nullptr)
+    {
+    }
+    int data;
+    node_st *next;
 };
 
 void node_add(node_st *head, int data)
@@ -57,7 +61,6 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
-
     auto head = (node_st *) malloc(sizeof(node_st));
     head->next = nullptr;
     for (int i = 0; i < 5; ++i)
