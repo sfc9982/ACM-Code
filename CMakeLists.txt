@@ -21,3 +21,5 @@ add_executable(B Math/B.cpp)
 add_executable(C Math/C.cpp)
 add_executable(Reverse CTF/Reverse.cpp)
 add_executable(id zyx/id.cpp)
+
+add_executable(linked_list Templates_Code/linked_list.cpp)
