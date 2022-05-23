@@ -15,10 +15,6 @@
 using namespace std;
 
 struct node_st {
-    node_st()
-        : data(0), next(nullptr)
-    {
-    }
     int data;
     node_st *next;
 };

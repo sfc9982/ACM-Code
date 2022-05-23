@@ -1,41 +1,40 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define LEN 100
+#include <string.h>
+char a[101][51];
+
+void js(char a[101][51], int n)
+{
+    int b[100], max = -1;
+    int ans = 0;
+    memset(b, 0, sizeof(b));
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < strlen(a[i]); j++)
+            if (a[i][j] == "*")
+                b[i]++;
+    }
+    for (int i = 0; i < n; i++)
+    {
+        if (b[i] > max)
+        {
+            max = b[i];
+            ans = i;
+        }
+    }
+    printf("%s\n", a[ans]);
+}
+
 int main()
 {
-    int compress(char array[], int count[]);
-    char array[LEN];
-    int count[LEN];
-    int i;
-    int tail; //count数组的有效最末下标
-    while (scanf("%s", array) != -1)
+    int n;
+    memset(a, 0, sizeof(a));
+    while (scanf("%d", &n) != -1)
     {
-        tail = compress(array, count);
-        for (i = 0; i < tail; i++)
-            i < tail - 1 ? printf("%d ", count[i]) : printf("%d\n", count[i]);
+        getchar();
+        for (int i = 0; i < n; i++)
+            scanf("%s", a[i]);
+        js(a, n);
     }
     return 0;
-}
-int compress(char array[], int count[])
-{
-    //start
-    int i = 0, num = 0;
-    for (int i = 0; i < LEN; i++)
-        count[i] = 0;
-    count[0] = 1;
-    while (array[i] != '\0')
-    {
-        if (array[i] == array[i + 1])
-        {
-            count[num]++;
-        }
-        else
-        {
-            num++;
-            count[num]++;
-        }
-        i++;
-    }
-    return num;
-    //end
 }

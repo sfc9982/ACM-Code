@@ -23,3 +23,4 @@ add_executable(Reverse CTF/Reverse.cpp)
 add_executable(id zyx/id.cpp)
 
 add_executable(linked_list Templates_Code/linked_list.cpp)
+add_executable(zzr Classmates-Shitty-Code/zzr.cpp)
