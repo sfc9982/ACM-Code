@@ -3,7 +3,7 @@
 
 using namespace std;
 
-long long qpower(long long x, long long n)
+unsigned long long qpower(long long x, long long n)
 {
     if (n == 0)
         return 1;
@@ -20,6 +20,5 @@ int main()
     cin >> x >> n;
     cout << qpower(x, n) << endl;
 
-    system("pause");
     return 0;
 }
