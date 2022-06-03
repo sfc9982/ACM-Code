@@ -12,6 +12,8 @@
 #include <stack>
 #include <string>
 
+#define 变量 auto
+#define 打印 printf
 using namespace std;
 
 int main()
@@ -20,15 +22,12 @@ int main()
     cin.tie(nullptr), cout.tie(nullptr);
 
     //Find the area of a triangle based on its vertices
-    double x1, y1, x2, y2, x3, y3;
-    cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
-    double a = sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-    double b = sqrt((x2 - x3) * (x2 - x3) + (y2 - y3) * (y2 - y3));
-    double c = sqrt((x3 - x1) * (x3 - x1) + (y3 - y1) * (y3 - y1));
-    double p = (a + b + c) / 2;
-    double area = sqrt(p * (p - a) * (p - b) * (p - c));
-    cout << fixed << setprecision(2) << area << endl;
+//    int x1, y1, x2, y2, x3, y3;
+//    cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
+//    int a = x1 * y2 + x2 * y3 + x3 * y1 - x1 * y3 - x2 * y1 - x3 * y2;
+//    cout << abs(a) / 2 << endl;
 
-
+    变量 var = 10;
+    打印("%d\n", var);
     return 0;
 }

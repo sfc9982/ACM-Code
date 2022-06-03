@@ -2,14 +2,14 @@
 // Created by sfc9982 on 2022/02/21.
 //
 
-#include <iostream>
-#include <cstring>
-#include <string>
-#include <iomanip>
 #include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <iomanip>
+#include <iostream>
 #include <queue>
 #include <stack>
-#include <cmath>
+#include <string>
 
 using namespace std;
 
@@ -17,15 +17,14 @@ int map[105][105];
 int flag[105][105];
 int dep = 0;
 int ans[20005];
-int id = 0;
+int id         = 0;
 const int tx[] = {0, 1, 0, -1};
 const int ty[] = {1, 0, -1, 0};
 int H = 100, W = 100;
 
 void bfs(int x, int y)
 {
-    if (map[x][y] == 9 || x < 1 || x > H || y < 1 || y > W)
-        return;
+    if (map[x][y] == 9 || x < 1 || x > H || y < 1 || y > W) return;
     flag[x][y] = id;
     for (int k = 0; k < 4; ++k)
     {
@@ -47,10 +46,7 @@ int main()
 
     for (int i = 1; i <= H; i++)
     {
-        for (int j = 1; j <= W; j++)
-        {
-            map[i][j] = getchar() - '0';
-        }
+        for (int j = 1; j <= W; j++) { map[i][j] = getchar() - '0'; }
         getchar();
     }
     for (int i = 1; i <= H; i++)
@@ -58,8 +54,7 @@ int main()
         for (int j = 1; j <= W; j++)
         {
             id++;
-            if (map[i][j] != 9 && flag[i][j] == 0)
-                bfs(i, j);
+            if (map[i][j] != 9 && flag[i][j] == 0) bfs(i, j);
         }
     }
     for (int i = 1; i <= H; i++)
@@ -68,7 +63,6 @@ int main()
         {
             cout << setw(6) << flag[i][j];
             ans[flag[i][j]]++;
-
         }
         cout << endl;
     }

@@ -18,7 +18,7 @@ add_executable(HDU-1159 HDU-1159.cpp)
 add_executable(zyx zyx.cpp)
 add_executable(A 2022-C-Homework/HW-MultiDim-Array/A.cpp)
 add_executable(B 2022-C-Homework/HW-Pointer/B.cpp)
-add_executable(C 2022-C-Homework/HW-String/C.cpp)
+add_executable(C 2022-C-Homework/HW-Stuct/C.cpp)
 add_executable(Reverse CTF/Reverse.cpp)
 add_executable(id zyx/id.cpp)
 
