@@ -19,23 +19,21 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
-    //turn a matrix 90 degree clockwise
+    cout << "123" << endl;
+    // turn a matrix 90 degrees clockwise
     int n;
     cin >> n;
-    int a[10][10];
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
+    int a[n][n];
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < n; ++j)
             cin >> a[i][j];
-    int b[10][10];
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
-            b[j][n - i - 1] = a[i][j];
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; ++i)
     {
-        for (int j = 0; j < n; j++)
-            cout << b[i][j] << " ";
+        for (int j = n - 1; j >= 0; --j)
+            cout << a[j][i] << " ";
         cout << endl;
     }
+
 
     return 0;
 }
