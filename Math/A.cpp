@@ -16,8 +16,7 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
@@ -25,15 +24,13 @@ int main()
     int n, m;
     cin >> n;
     set<int> s1, s2;
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         int x;
         cin >> x;
         s1.insert(x);
     }
     cin >> m;
-    for (int i = 0; i < m; i++)
-    {
+    for (int i = 0; i < m; i++) {
         int x;
         cin >> x;
         s2.insert(x);

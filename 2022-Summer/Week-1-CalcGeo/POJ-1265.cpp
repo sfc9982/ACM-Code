@@ -22,29 +22,24 @@ struct node {
     int x, y;
 } p[MAXN];
 
-inline int gcd(int x, int y)
-{
+inline int gcd(int x, int y) {
     return y == 0 ? x : gcd(y, x % y);
 } // 求最大公约数
 
-inline int area(int a, int b)
-{
+inline int area(int a, int b) {
     return p[a].x * p[b].y - p[a].y * p[b].x;
 } // 求区域
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
     int t, iCase = 1;
     scanf("%d", &t);
-    while (t--)
-    {
+    while (t--) {
         int n, dx, dy, x, y, num = 0, sum = 0;
         scanf("%d", &n);
         p[0].x = 0, p[0].y = 0;
-        for (int i = 1; i <= n; i++)
-        {
+        for (int i = 1; i <= n; i++) {
             scanf("%d%d", &x, &y);
             p[i].x = x + p[i - 1].x, p[i].y = y + p[i - 1].y;
             dx = x, dy = y;

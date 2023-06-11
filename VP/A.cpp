@@ -2,26 +2,24 @@
 // Created by sfc9982 on 2022/03/05.
 //
 
-#include <iostream>
-#include <cstring>
-#include <string>
-#include <iomanip>
 #include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <iomanip>
+#include <iostream>
 #include <queue>
 #include <stack>
-#include <cmath>
+#include <string>
 
 using namespace std;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
     long long t;
     cin >> t;
-    while (t--)
-    {
+    while (t--) {
         long long n, s;
         cin >> n >> s;
         n *= n;
@@ -30,4 +28,3 @@ int main()
     }
     return 0;
 }
-

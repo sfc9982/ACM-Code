@@ -1,5 +1,5 @@
-#include <iostream>
 #include <cstring>
+#include <iostream>
 
 using namespace std;
 
@@ -40,12 +40,11 @@ const int CMP[] = {0x9d, 0x71, 0xb8, 0xc8, 0x65, 0xfb, 0x87, 0x7f, 0x9a, 0x9c, 0
                    0xe7,
                    0xa4, 0x79, 0xff, 0xff, 0xff, 0xff};
 
-void Judge()
-{
-    int len;
-    int ok;
-    int str_ori[9];
-    int i, j;
+void Judge() {
+    int  len;
+    int  ok;
+    int  str_ori[9];
+    int  i, j;
     char ans[256];
     char str_in[256] = "0123456789012345678901234567890123456789";
 
@@ -57,58 +56,47 @@ void Judge()
     str_ori[5] = 4;
     str_ori[6] = 2;
     str_ori[7] = 1;
-//    memset(str_in, 0, 0x100);
+    //    memset(str_in, 0, 0x100);
     memset(ans, 0, 0x100);
-//    FUN_004016a0(&DAT_00404118, 0xfc);
-//    str_in = "0123456789012345678901234567890123456789";
+    //    FUN_004016a0(&DAT_00404118, 0xfc);
+    //    str_in = "0123456789012345678901234567890123456789";
     len = strlen(str_in);
-    if (len != 40)
-    {
+    if (len != 40) {
         exit(0);
     }
-    for (i = 0; i < 40; i += 8)
-    {
-        for (j = 0; j < 8; j += 1)
-        {
+    for (i = 0; i < 40; i += 8) {
+        for (j = 0; j < 8; j += 1) {
             ans[i + j] = DAT[(((((int) str_in[i] & str_ori[j]) >>
-                                                               (-j % 8)) |
-                               (((int) str_in[i] & str_ori[j]) <<
-                                                               (8U - (j % 8) &
-                                                                0x1f)) |
+                                (-j % 8)) |
+                               (((int) str_in[i] & str_ori[j]) << (8U - (j % 8) &
+                                                                   0x1f)) |
                                (((int) str_in[i + 1] & str_ori[j]) >>
-                                                                   (-(1 - j) % 8)) |
-                               (((int) str_in[i + 1] & str_ori[j]) <<
-                                                                   (8U - (-(1 - j) % 8))) |
+                                (-(1 - j) % 8)) |
+                               (((int) str_in[i + 1] & str_ori[j]) << (8U - (-(1 - j) % 8))) |
                                (((int) str_in[i + 2] & str_ori[j]) >>
-                                                                   (-(2 - j) % 8)) |
-                               (((int) str_in[i + 2] & str_ori[j]) <<
-                                                                   (8U - (-(2 - j) % 8))) |
+                                (-(2 - j) % 8)) |
+                               (((int) str_in[i + 2] & str_ori[j]) << (8U - (-(2 - j) % 8))) |
                                (((int) str_in[i + 3] & str_ori[j]) >>
-                                                                   ((3 - j) % 8)) |
-                               (((int) str_in[i + 3] & str_ori[j]) <<
-                                                                   (8U - (-(3 - j) % 8))) |
+                                ((3 - j) % 8)) |
+                               (((int) str_in[i + 3] & str_ori[j]) << (8U - (-(3 - j) % 8))) |
                                (((int) str_in[i + 4] & str_ori[j]) >>
-                                                                   (-(4 - j) % 8)) |
-                               (((int) str_in[i + 4] & str_ori[j]) <<
-                                                                   (8U - (-(4 - j) % 8))) |
+                                (-(4 - j) % 8)) |
+                               (((int) str_in[i + 4] & str_ori[j]) << (8U - (-(4 - j) % 8))) |
                                (((int) str_in[i + 5] & str_ori[j]) >>
-                                                                   (-(5 - j) % 8)) |
-                               (((int) str_in[i + 5] & str_ori[j]) <<
-                                                                   (8U - (-(5 - j) % 8))) |
+                                (-(5 - j) % 8)) |
+                               (((int) str_in[i + 5] & str_ori[j]) << (8U - (-(5 - j) % 8))) |
                                (((int) str_in[i + 6] & str_ori[j]) >>
-                                                                   (-(6 - j) % 8)) |
-                               (((int) str_in[i + 6] & str_ori[j]) <<
-                                                                   (8U - (-(6 - j) % 8))) |
+                                (-(6 - j) % 8)) |
+                               (((int) str_in[i + 6] & str_ori[j]) << (8U - (-(6 - j) % 8))) |
                                (((int) str_in[i + 7] & str_ori[j]) >>
-                                                                   (-(7 - j) % 8)) |
-                               (((int) str_in[i + 7] & str_ori[j]) <<
-                                                                   (8U - (-(7 - j) % 8))))) % 99999999];
+                                (-(7 - j) % 8)) |
+                               (((int) str_in[i + 7] & str_ori[j]) << (8U - (-(7 - j) % 8))))) %
+                             99999999];
         }
     }
     ok = memcmp(CMP, ans, 40);
     cout << ans << endl;
-    if (ok != 0)
-    {
+    if (ok != 0) {
         puts("Wrong");
         exit(0);
     }
@@ -117,8 +105,7 @@ void Judge()
 }
 
 
-int main()
-{
+int main() {
     Judge();
     return 0;
 }

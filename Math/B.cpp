@@ -15,16 +15,14 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
     // Giving x degree sequence of no direction diagram, determine whether it can constitute an universe diagram
     int n, sum = 0;
     cin >> n;
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         int x;
         cin >> x;
         sum += x;

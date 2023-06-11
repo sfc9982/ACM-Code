@@ -13,19 +13,17 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
     int T;
     cin >> T;
-    while (T--)
-    {
+    while (T--) {
         long long p, q;
         cin >> p >> q;
-        long long d = p * p - 4 * q * q;
-        auto x = static_cast<long long int>(sqrt(d));
+        long long d   = p * p - 4 * q * q;
+        auto      x   = static_cast<long long int>(sqrt(d));
         long long gcd = __gcd(p - x, q * 2);
         if (x * x == d) // when d have no imaginary part
             cout << (p - x) / gcd << " " << q * 2 / gcd;

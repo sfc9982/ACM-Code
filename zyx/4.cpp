@@ -2,8 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-int main()
-{
+int main() {
     int a[9][9];
 
     time_t t;
@@ -13,10 +12,8 @@ int main()
         for (int j = 0; j < 9; ++j)
             a[i][j] = rand() % 70 + 20;
 
-    for (int i = 0; i < 9; ++i)
-    {
-        for (int j = 0; j < 9; ++j)
-        {
+    for (int i = 0; i < 9; ++i) {
+        for (int j = 0; j < 9; ++j) {
             printf("%d ", a[i][j]);
         }
         printf("\n");

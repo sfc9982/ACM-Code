@@ -14,19 +14,17 @@
 
 using namespace std;
 
-void solve()
-{
+void solve() {
     int n, m, k;
     cin >> n >> m >> k;
     vector<int> v(n);
     for (auto &x: v)
         cin >> x;
-    vector<int> cnt(k + 1, 0);
+    vector<int>                  cnt(k + 1, 0);
     vector<tuple<int, int, int>> querry(m);
 
     long long now = 0;
-    for (auto &[l, r, id]: querry)
-    {
+    for (auto &[l, r, id]: querry) {
         cin >> l >> r;
         id = now++;
         l--, r--;
@@ -35,16 +33,13 @@ void solve()
     auto get_prt = [](int x) {
         int l = 0, r = 1e3;
         int res = 0;
-        while (l <= r)
-        {
+        while (l <= r) {
             int m = (l + r) >> 1;
-            if (m * m >= x)
-            {
+            if (m * m >= x) {
                 res = m;
-                r = m - 1;
+                r   = m - 1;
             }
-            else
-            {
+            else {
                 l = m + 1;
             }
         }
@@ -58,11 +53,10 @@ void solve()
         ++t;
         int prta = get<0>(A) / prt;
         int prtb = get<0>(B) / prt;
-        if (prta == prtb)
-        {
+        if (prta == prtb) {
             bool tmp = get<1>(A) < get<1>(B);
-//            if (t > m - 2)
-//                return tmp;
+            //            if (t > m - 2)
+            //                return tmp;
             return tmp ^ ((prta | ~prtb) & 1);
         }
         return prta < prtb;
@@ -80,10 +74,9 @@ void solve()
     };
 
     vector<long long> ans(m);
-    int l = 0, r = -1;
+    int               l = 0, r = -1;
     now = 0;
-    for (auto [ql, qr, id]: querry)
-    {
+    for (auto [ql, qr, id]: querry) {
         while (r < qr)
             add(++r);
         while (l > ql)
@@ -94,14 +87,12 @@ void solve()
             del(l++);
         ans[id] = now;
     }
-    for (auto x: ans)
-    {
+    for (auto x: ans) {
         cout << x << '\n';
     }
 }
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
     int t = 1;

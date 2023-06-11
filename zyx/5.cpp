@@ -14,8 +14,7 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     int sum = 0;
     for (int i = 0; i <= 30; i += 2)
         for (int j = 0; j <= 60; j += 2)

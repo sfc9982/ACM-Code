@@ -14,21 +14,18 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
-    int n, t, s, d;
+    int            n, t, s, d;
     pair<int, int> v = {0x3f3f3f3f, -1};
 
     cin >> n >> t;
 
-    for (int i = 1; i <= n; i++)
-    {
+    for (int i = 1; i <= n; i++) {
         cin >> s >> d;
-        while (s < t)
-        {
+        while (s < t) {
             s += d;
         }
         v = min(pair<int, int>(s, i), v);

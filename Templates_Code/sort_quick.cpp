@@ -4,12 +4,10 @@ using namespace std;
 
 int a[1002];
 
-int main()
-{
+int main() {
     int n, T;
     cin >> T;
-    while (T--)
-    {
+    while (T--) {
         cin >> n;
         for (int i = 0; i < n; ++i)
             cin >> a[i];

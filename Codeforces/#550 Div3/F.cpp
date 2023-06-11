@@ -16,41 +16,34 @@ using namespace std;
 
 const int N = 200 * 1000 + 50;
 
-int n, m;
-vector<int> g[N];
+int                    n, m;
+vector<int>            g[N];
 vector<pair<int, int>> v;
 
-bool flag;
+bool        flag;
 vector<int> color;
 
-void dfs(int v, int c)
-{
+void dfs(int v, int c) {
     color[v] = c;
-    for (auto to: g[v])
-    {
-        if (color[to] == -1)
-        {
+    for (auto to: g[v]) {
+        if (color[to] == -1) {
             dfs(to, c ^ 1);
         }
-        else
-        {
-            if (color[to] == color[v])
-            {
+        else {
+            if (color[to] == color[v]) {
                 flag = false;
             }
         }
     }
 }
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
     cin >> n >> m;
 
-    for (int i = 0; i < m; ++i)
-    {
+    for (int i = 0; i < m; ++i) {
         int x, y;
         cin >> x >> y;
         --x, --y;
@@ -59,19 +52,17 @@ int main()
         v.push_back(make_pair(x, y));
     }
 
-    flag = true;
+    flag  = true;
     color = vector<int>(n, -1);
     dfs(0, 0);
 
-    if (!flag)
-    {
+    if (!flag) {
         cout << "NO" << endl;
         return 0;
     }
 
     cout << "YES" << endl;
-    for (int i = 0; i < m; ++i)
-    {
+    for (int i = 0; i < m; ++i) {
         cout << (color[v[i].first] < color[v[i].second]);
     }
     cout << endl;

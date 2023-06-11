@@ -16,8 +16,7 @@ using namespace std;
 
 int l[100], r[100], mat[100][100], f[100][100];
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
@@ -34,10 +33,8 @@ int main()
         for (int j = 0; j < m; j++)
             cin >> mat[i][j];
 
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
             if (mat[i][j])
                 f[i][j] = min(r[i], l[j]);
             else
@@ -45,8 +42,7 @@ int main()
         }
     }
 
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++)
             cout << f[i][j] << " ";
         cout << endl;

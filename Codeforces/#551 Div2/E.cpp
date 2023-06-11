@@ -15,8 +15,7 @@
 using namespace std;
 
 
-int main()
-{
+int main() {
     // ios::sync_with_stdio(false);
     // cin.tie(nullptr), cout.tie(nullptr);
 
@@ -24,18 +23,15 @@ int main()
     int ax1, ay1, ax2, ay2;
 
     cin >> n;
-    for (i = 1; i < n; i++)
-    {
+    for (i = 1; i < n; i++) {
         printf("? 1 1 %d %d\n", n, i);
         fflush(stdout);
         scanf("%d", &x);
         if (x % 2 == 1)
             break;
     }
-    if (i != n)
-    {
-        for (j = n; j > 1; j--)
-        {
+    if (i != n) {
+        for (j = n; j > 1; j--) {
             printf("? 1 %d %d %d\n", j, n, n);
             fflush(stdout);
             scanf("%d", &x);
@@ -43,8 +39,7 @@ int main()
                 break;
         }
         int l = 1, r = n;
-        while (l < r)
-        {
+        while (l < r) {
             int mid = (l + r + 1) >> 1;
             printf("? %d %d %d %d\n", mid, i, n, i);
             fflush(stdout);
@@ -56,8 +51,7 @@ int main()
         }
         ax1 = l, ay1 = i;
         l = 1, r = n;
-        while (l < r)
-        {
+        while (l < r) {
             int mid = (l + r + 1) >> 1;
             printf("? %d %d %d %d\n", mid, j, n, j);
             fflush(stdout);
@@ -69,18 +63,15 @@ int main()
         }
         ax2 = l, ay2 = j;
     }
-    else
-    {
-        for (i = 1; i < n; i++)
-        {
+    else {
+        for (i = 1; i < n; i++) {
             printf("? 1 1 %d %d\n", i, n);
             fflush(stdout);
             scanf("%d", &x);
             if (x % 2 == 1)
                 break;
         }
-        for (j = n; j > 1; j--)
-        {
+        for (j = n; j > 1; j--) {
             printf("? %d 1 %d %d\n", j, n, n);
             fflush(stdout);
             scanf("%d", &x);
@@ -88,8 +79,7 @@ int main()
                 break;
         }
         int l = 1, r = n;
-        while (l < r)
-        {
+        while (l < r) {
             int mid = (l + r + 1) >> 1;
             printf("? %d %d %d %d\n", i, mid, i, n);
             fflush(stdout);
@@ -101,8 +91,7 @@ int main()
         }
         ax1 = i, ay1 = l;
         l = 1, r = n;
-        while (l < r)
-        {
+        while (l < r) {
             int mid = (l + r + 1) >> 1;
             printf("? %d %d %d %d\n", j, mid, j, n);
             fflush(stdout);

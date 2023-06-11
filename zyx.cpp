@@ -14,15 +14,12 @@
 
 using namespace std;
 
-int main()
-{
-    int a, i = 1, p = -1;
+int main() {
+    int   a, i = 1, p = -1;
     FILE *fp;
     fp = fopen("D:\\wj007.txt", "r");
-    while (fscanf(fp, "%d", &a) != EOF)
-    {
-        if (i % 2 == 1)
-        {
+    while (fscanf(fp, "%d", &a) != EOF) {
+        if (i % 2 == 1) {
             if (a > p)
                 p = a;
         }

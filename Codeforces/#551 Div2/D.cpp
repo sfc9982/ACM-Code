@@ -17,9 +17,8 @@ using namespace std;
 const int N   = 1000050;
 const int INF = 0x3f3f3f3f;
 
-struct node
-{
-    int to;
+struct node {
+    int   to;
     node *next;
 };
 
@@ -28,19 +27,16 @@ node *G[N];
 int k = 0;
 int a[N], f[N], dp[N], deg[N];
 
-void addv(int u, int v)
-{
+void addv(int u, int v) {
     node *p = new node();
     p->to   = v;
     p->next = G[u];
     G[u]    = p;
 }
 
-void dfs(int u)
-{
+void dfs(int u) {
     node *p = G[u];
-    if (u > 1 && deg[u] == 1)
-    {
+    if (u > 1 && deg[u] == 1) {
         dp[u] = 1;
         k++;
         return;
@@ -48,8 +44,7 @@ void dfs(int u)
 
     dp[u] = a[u] ? INF : 0;
 
-    while (p != nullptr)
-    {
+    while (p != nullptr) {
         dfs(p->to);
 
         if (!a[u])
@@ -61,8 +56,7 @@ void dfs(int u)
     }
 }
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
@@ -72,8 +66,7 @@ int main()
     for (int i = 1; i <= n; i++)
         cin >> a[i];
 
-    for (int i = 2; i <= n; i++)
-    {
+    for (int i = 2; i <= n; i++) {
         cin >> f[i];
         deg[i]++;
         deg[f[i]]++;

@@ -15,17 +15,15 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
-    int n;
+    int    n;
     string s;
 
     cin >> n;
-    for (int i = 1; i <= n; ++i)
-    {
+    for (int i = 1; i <= n; ++i) {
         cin >> s;
         cout << ((set<char>(s.begin(), s.end()).size() == s.length() && *max_element(s.begin(), s.end()) == char(static_cast<unsigned long long int>(*min_element(s.begin(), s.end())) + (s.length() - 1))) ? "Yes" : "No") << endl;
     }

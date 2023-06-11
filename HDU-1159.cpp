@@ -2,16 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main()
-{
-    int num[10], n;
+int main() {
+    int  num[10], n;
     char str[10];
-    while (scanf("%d", &n) != -1)
-    {
+    while (scanf("%d", &n) != -1) {
         memset(num, 0, sizeof(num));
         int max = -1, t;
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             scanf("%s", str);
             if (strcmp(str, "green") == 0)
                 num[1]++;
@@ -26,16 +23,13 @@ int main()
             if (strcmp(str, "black") == 0)
                 num[6]++;
         }
-        for (int i = 1; i <= 6; i++)
-        {
-            if (num[i] >= max)
-            {
+        for (int i = 1; i <= 6; i++) {
+            if (num[i] >= max) {
                 max = num[i];
-                t = i;
+                t   = i;
             }
         }
-        switch (t)
-        {
+        switch (t) {
             case 1:
                 printf("green\n");
                 break;

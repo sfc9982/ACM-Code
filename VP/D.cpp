@@ -14,16 +14,14 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
     unsigned long long int n;
     cin >> n;
 
-    if (n == 2)
-    {
+    if (n == 2) {
         cout << 2 << ' ' << 2 << "\n";
         cout << 1 << ' ' << 1 << "\n";
         return 0;
@@ -31,8 +29,7 @@ int main()
 
     vector<vector<int>> G(n);
 
-    for (int i = 0; i < (int) n - 1; i++)
-    {
+    for (int i = 0; i < (int) n - 1; i++) {
         int u, v;
         cin >> u >> v;
         --u, --v;
@@ -41,16 +38,13 @@ int main()
     }
 
     vector<vector<pair<int, int>>> dp(n, vector<pair<int, int>>(2));
-    for (int i = 0; i < (int) n; i++)
-    {
+    for (int i = 0; i < (int) n; i++) {
         dp[i][0] = {0, -1};
         dp[i][1] = {1, -(int) G[i].size()};
     }
     function<void(int, int)> dfs = [&](int u, int p) {
-        for (auto v: G[u])
-        {
-            if (v == p)
-            {
+        for (auto v: G[u]) {
+            if (v == p) {
                 continue;
             }
             dfs(v, u);
@@ -66,36 +60,29 @@ int main()
     auto ans = max(dp[0][0], dp[0][1]);
     cout << ans.first << ' ' << -ans.second << "\n";
 
-    vector<int> w(n);
+    vector<int>                    w(n);
     function<void(int, int, bool)> dfs2 = [&](int u, int p, bool good) {
-        if (good)
-        {
+        if (good) {
             w[u] = (int) G[u].size();
         }
-        else
-        {
+        else {
             w[u] = 1;
         }
-        for (auto v: G[u])
-        {
-            if (v == p)
-            {
+        for (auto v: G[u]) {
+            if (v == p) {
                 continue;
             }
-            if (good or dp[v][0] >= dp[v][1])
-            {
+            if (good or dp[v][0] >= dp[v][1]) {
                 dfs2(v, u, false);
             }
-            else
-            {
+            else {
                 dfs2(v, u, true);
             }
         }
     };
     dfs2(0, -1, !(dp[0][0] >= dp[0][1]));
 
-    for (int i = 0; i < (int) n; i++)
-    {
+    for (int i = 0; i < (int) n; i++) {
         cout << w[i] << " \n"[i == n - 1];
     }
 

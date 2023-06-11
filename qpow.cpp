@@ -3,9 +3,25 @@
 
 using namespace std;
 
+// 快速幂
 
-int main()
-{
+int qpow(int a, int b) {
+    int ans = 1;
+    while (b) {
+        if (b & 1) {
+            ans *= a;
+            b--;
+        }
+        a *= a;
+        b /= 2;
+    }
+    return ans;
+}
+int main() {
 
-   return 0;
+    int a, b;
+    cin >> a >> b;
+    cout << qpow(a, b) << endl;
+
+    return 0;
 }

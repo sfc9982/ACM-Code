@@ -14,20 +14,18 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
-    int n;
+    int          n;
     const string fail = ":(";
-    string s;
+    string       s;
 
     cin >> n;
     cin >> s;
 
-    if (n % 2 != 0)
-    {
+    if (n % 2 != 0) {
         cout << fail << endl;
         return 0;
     }
@@ -35,8 +33,7 @@ int main()
     int l, r;
     l = r = n / 2;
 
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         if (s[i] == '(')
             l--;
         else if (s[i] == ')')
@@ -45,46 +42,36 @@ int main()
 
     int stack = 0;
 
-    if (s[0] == '?')
-    {
+    if (s[0] == '?') {
         l--;
         stack = 1;
         s[0]  = '(';
     }
-    else if (s[0] == '(')
-    {
+    else if (s[0] == '(') {
         stack = 1;
     }
-    else
-    {
+    else {
         stack = -1;
     }
 
-    for (int i = 1; i < n; i++)
-    {
-        if (stack <= 0 && i < n - 1)
-        {
+    for (int i = 1; i < n; i++) {
+        if (stack <= 0 && i < n - 1) {
             cout << fail << endl;
             return 0;
         }
-        if (s[i] == '(')
-        {
+        if (s[i] == '(') {
             stack++;
         }
-        else if (s[i] == ')')
-        {
+        else if (s[i] == ')') {
             stack--;
         }
-        else
-        {
-            if (l)
-            {
+        else {
+            if (l) {
                 s[i] = '(';
                 l--;
                 stack++;
             }
-            else
-            {
+            else {
                 s[i] = ')';
                 r--;
                 stack--;

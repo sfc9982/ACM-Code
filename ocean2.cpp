@@ -13,30 +13,27 @@
 
 using namespace std;
 
-int map[105][105];
-int flag[105][105];
-int dep = 0;
-int ans[20005];
-int id         = 0;
+int       map[105][105];
+int       flag[105][105];
+int       dep = 0;
+int       ans[20005];
+int       id   = 0;
 const int tx[] = {0, 1, 0, -1};
 const int ty[] = {1, 0, -1, 0};
-int H = 100, W = 100;
+int       H = 100, W = 100;
 
-void bfs(int x, int y)
-{
-    if (map[x][y] == 9 || x < 1 || x > H || y < 1 || y > W) return;
+void bfs(int x, int y) {
+    if (map[x][y] == 9 || x < 1 || x > H || y < 1 || y > W)
+        return;
     flag[x][y] = id;
-    for (int k = 0; k < 4; ++k)
-    {
-        if (map[x + tx[k]][y + ty[k]] > map[x][y])
-        {
+    for (int k = 0; k < 4; ++k) {
+        if (map[x + tx[k]][y + ty[k]] > map[x][y]) {
             bfs(x + tx[k], y + ty[k]);
         }
     }
 }
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
     int sum = 0;
@@ -44,23 +41,21 @@ int main()
     memset(flag, false, sizeof(flag));
     memset(ans, false, sizeof(ans));
 
-    for (int i = 1; i <= H; i++)
-    {
-        for (int j = 1; j <= W; j++) { map[i][j] = getchar() - '0'; }
+    for (int i = 1; i <= H; i++) {
+        for (int j = 1; j <= W; j++) {
+            map[i][j] = getchar() - '0';
+        }
         getchar();
     }
-    for (int i = 1; i <= H; i++)
-    {
-        for (int j = 1; j <= W; j++)
-        {
+    for (int i = 1; i <= H; i++) {
+        for (int j = 1; j <= W; j++) {
             id++;
-            if (map[i][j] != 9 && flag[i][j] == 0) bfs(i, j);
+            if (map[i][j] != 9 && flag[i][j] == 0)
+                bfs(i, j);
         }
     }
-    for (int i = 1; i <= H; i++)
-    {
-        for (int j = 1; j <= W; j++)
-        {
+    for (int i = 1; i <= H; i++) {
+        for (int j = 1; j <= W; j++) {
             cout << setw(6) << flag[i][j];
             ans[flag[i][j]]++;
         }

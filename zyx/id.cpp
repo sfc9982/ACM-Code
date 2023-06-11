@@ -3,8 +3,7 @@
 
 char name[100][100];
 
-void init()
-{
+void init() {
     strcpy(name[1], "机械与动力工程学院");
     strcpy(name[2], "电气工程学院");
     strcpy(name[3], "化工学院");
@@ -44,51 +43,42 @@ void init()
     strcpy(name[90], "交换生");
 }
 
-int main()
-{
+int main() {
     init();
     char id[100];
-    while (scanf("%s", id) != EOF)
-    {
+    while (scanf("%s", id) != EOF) {
         int len = strlen(id);
-        if (len != 12)
-        {
+        if (len != 12) {
             printf("%s 不是有效的学生学号\n", id);
             continue;
         }
         if (id[0] == '0')
             break;
         int year = 0;
-        for (int i = 0; i < 4; i++)
-        {
+        for (int i = 0; i < 4; i++) {
             year *= 10;
             year += id[i] - '0';
         }
-        if (year < 2018 || year > 2021)
-        {
+        if (year < 2018 || year > 2021) {
             printf("日期 %d 错误\n", year);
             continue;
         }
         int institute_id = 0;
-        for (int i = 6; i < 8; i++)
-        {
+        for (int i = 6; i < 8; i++) {
             institute_id *= 10;
             institute_id += id[i] - '0';
         }
-        if (name[institute_id][0] == '\0')
-        {
+        if (name[institute_id][0] == '\0') {
             printf("学院 %d 不存在\n", institute_id);
             continue;
         }
         int _class = 0;
-        for (int i = 8; i < 10; i++)
-        {
+        for (int i = 8; i < 10; i++) {
             _class *= 10;
             _class += id[i] - '0';
         }
         int num = 0;
-        for (int i = 10; i < 12; i++)
-        {
+        for (int i = 10; i < 12; i++) {
             num *= 10;
             num += id[i] - '0';
         }

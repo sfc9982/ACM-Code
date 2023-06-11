@@ -1,33 +1,33 @@
 #include <bits/stdc++.h>
+#include <ctime>
 #include <windows.h>
-#include <ctime> 
 using namespace std;
 
-int main()
-{
-	system("title Squad工具 By:sfc9982");
-	cout << R"(Ver1.2
+int main() {
+    system("title Squad工具 By:sfc9982");
+    cout << R"(Ver1.2
 
 
 
 QwQ)";
 
-	system("pause");
-	char user[50];
-	cout << endl << "输入用户名后回车:";
-	gets(user); 
-	char *firstName = "C:/Users/";
-    char *lastName = "/AppData/Local/SquadGame/Saved/Config/WindowsNoEditor/Engine.ini";
-    char *name = (char *) malloc(strlen(firstName) + strlen(user) +strlen(lastName));
+    system("pause");
+    char user[50];
+    cout << endl
+         << "输入用户名后回车:";
+    gets(user);
+    char *firstName = "C:/Users/";
+    char *lastName  = "/AppData/Local/SquadGame/Saved/Config/WindowsNoEditor/Engine.ini";
+    char *name      = (char *) malloc(strlen(firstName) + strlen(user) + strlen(lastName));
     strcpy(name, firstName);
     strcat(name, user);
     strcat(name, lastName);
-	
-//	cout << name << endl;
-//	char* filepath = "%temp%/SquadGame/Saved/Config/WindowsNoEditor/Engine.ini";  
+
+    //	cout << name << endl;
+    //	char* filepath = "%temp%/SquadGame/Saved/Config/WindowsNoEditor/Engine.ini";
     ofstream output;
     output.open(name);
-    output <<R"([Core.System]
+    output << R"([Core.System]
 Paths=../../../Engine/Content
 Paths=%GAMEDIR%Content
 Paths=../../../SquadGame/Plugins/OffworldCore/Squad/Content
@@ -191,13 +191,14 @@ Global=0
 
 [Internationalization]
 Culture=en-US
-)"<<endl;
-	cout<<R"(解压中...)"<<endl;
-	Sleep(2000);
-	cout<<R"(解压完成!
-注入游戏文件...)"<<endl;
-cout<<R"(注入成功...
-)"<<endl;
+)" << endl;
+    cout << R"(解压中...)" << endl;
+    Sleep(2000);
+    cout << R"(解压完成!
+注入游戏文件...)"
+         << endl;
+    cout << R"(注入成功...
+)" << endl;
     output.close();
     getchar();
     getchar();

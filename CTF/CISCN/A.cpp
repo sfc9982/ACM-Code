@@ -2,16 +2,13 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     const int w = 132;
-    char ch;
-    string s = "";
-    while (cin >> ch)
-    {
+    char      ch;
+    string    s = "";
+    while (cin >> ch) {
         s += ch;
-        if (s.size() == w)
-        {
+        if (s.size() == w) {
             cout << s << endl;
             s = "";
         }

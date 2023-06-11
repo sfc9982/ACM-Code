@@ -14,23 +14,21 @@
 
 using namespace std;
 
-long long cnt[200005];
-long long a[200005];
+long long         cnt[200005];
+long long         a[200005];
 vector<long long> v, v1;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
     long long n, y;
     long long maxx = -0x3f3f3f3f;
-    long long ans = 0;
+    long long ans  = 0;
 
     cin >> n;
     y = n;
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         cin >> a[i];
         cnt[a[i]]++;
         maxx = max(maxx, cnt[a[i]]);
@@ -40,51 +38,42 @@ int main()
 
     if (maxx >= 3)
         cout << "NO" << endl;
-    else
-    {
-        if (n == 1)
-        {
+    else {
+        if (n == 1) {
             cout << "YES" << endl;
             cout << "0" << endl
                  << endl
                  << "1" << endl
                  << a[0] << endl;
         }
-        else if (n == 2)
-        {
+        else if (n == 2) {
             cout << "YES" << endl;
             cout << "1" << endl
                  << a[0] << endl;
             cout << "1" << endl
                  << a[1] << endl;
         }
-        else if (n == 3)
-        {
+        else if (n == 3) {
             cout << "YES" << endl;
             cout << "1" << endl
                  << a[0] << endl;
             cout << "2" << endl
                  << a[2] << " " << a[1] << endl;
         }
-        else if (n > 3)
-        {
+        else if (n > 3) {
             cout << "YES" << endl;
-            for (int i = 1; i < n;)
-            {
-                if (a[i - 1] == a[i])
-                {
+            for (int i = 1; i < n;) {
+                if (a[i - 1] == a[i]) {
                     v.push_back(a[i - 1]), v1.push_back(a[i]);
                     i += 2;
                     y -= 2;
                 }
-                else
-                {
+                else {
                     v1.push_back(a[i - 1]), i++;
                     y--;
                 }
             }
-            if (y != 0)
-            {
+            if (y != 0) {
                 v1.push_back(a[n - 1]);
             }
 

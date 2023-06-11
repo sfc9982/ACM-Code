@@ -17,8 +17,7 @@ using namespace std;
 
 vector<int> vEven, vOdd;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
 
@@ -26,8 +25,7 @@ int main()
 
     cin >> n;
 
-    for (int i = 0; i < n; ++i)
-    {
+    for (int i = 0; i < n; ++i) {
         int x;
         cin >> x;
         sum += x;
